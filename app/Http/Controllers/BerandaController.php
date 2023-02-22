@@ -14,7 +14,7 @@ class BerandaController extends Controller
     public function index()
     {
         $nama = "Nahdi Saubari";
-        return view('HalamanDepan.beranda',compact('var_nama'));
+        return view('HalamanDepan.beranda');
     }
 
     /**
