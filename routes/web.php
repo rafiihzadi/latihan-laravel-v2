@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BerandaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,27 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('Pengguna.login');
-})->name('login');
-
-Route::post('/postlogin', 'LoginController@postlogin') ->name('postlogin'); 
-Route::get('/logout','LoginController@logout')->name('logout');
-
-
-Route::group(['middleware' => ['auth:user','ceklevel:admin']], function () {
-    route::get('/halaman-satu', 'BerandaController@halamansatu')->name('halaman-satu');
-
+    return view('pengguna.login');
 });
 
-Route::group(['middleware' => ['auth:user,pengguna','ceklevel:admin,user,mhs']], function (){
-    route::get('/beranda', 'BerandaController@index');
+Route::get('/beranda', [BerandaController::class,'index']);
 
-    route::group('/halaman-dua','BerandaController@halamandua')->name('halaman-dua');
-
-
-});
-
-
-Route::group(['middleware' => ['auth:pengguna','ceklevel:mhs']], function () {
-    route::get('/halaman-tiga', 'BerandaController@halamantiga')->name('halaman-tiga');
-});
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');

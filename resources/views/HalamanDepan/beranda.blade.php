@@ -130,7 +130,7 @@ include('Template.script')
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
->>>>>>> 819fa5e7e46a5847c5d75713d186bbf8aab05ca8
+
 
 <title>AdminLTE 3 | Starter</title>
 

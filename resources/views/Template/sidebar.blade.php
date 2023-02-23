@@ -13,11 +13,7 @@
           <img src="{{asset('gambar/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          @if ((Str::length(Auth::guard('pengguna')->user()) > 0)
-          <a href="#" class="d-block">{{ auth::guard('pengguna')->user()->name}}</a>
-          @elseif ((Str::length(Auth::guard('pengguna')->user()) > 0)
-          <a href="#" class="d-block">{{ auth::guard('pengguna')->user()->name}}</a>
-          @endif
+          
         </div>
       </div>
 
@@ -35,22 +31,22 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              {{-- @if (auth()->user()->level=="admin") --}}
+              
               <li class="nav-item">
-                <a href="{{route('halaman-satu')}}" class="nav-link active">
+                <a href="" class="nav-link active">
                     halaman satu
                 </a>
               </li>
-              {{-- @endif --}}
+              
               <li class="nav-item">
-                <a href="{{route('halaman-dua')}}" class="nav-link">
+                <a href="" class="nav-link">
                     Halaman dua 
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{route('logout')}}" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Logout
