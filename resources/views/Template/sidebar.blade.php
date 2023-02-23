@@ -13,19 +13,11 @@
           <img src="{{asset('gambar/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Rafi Ihzadi</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
+          @if ((Str::length(Auth::guard('pengguna')->user()) > 0)
+          <a href="#" class="d-block">{{ auth::guard('pengguna')->user()->name}}</a>
+          @elseif ((Str::length(Auth::guard('pengguna')->user()) > 0)
+          <a href="#" class="d-block">{{ auth::guard('pengguna')->user()->name}}</a>
+          @endif
         </div>
       </div>
 
@@ -43,26 +35,25 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              {{-- @if (auth()->user()->level=="admin") --}}
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                <a href="{{route('halaman-satu')}}" class="nav-link active">
+                    halaman satu
                 </a>
               </li>
+              {{-- @endif --}}
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                <a href="{{route('halaman-dua')}}" class="nav-link">
+                    Halaman dua 
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('logout')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
+                Logout
               </p>
             </a>
           </li>

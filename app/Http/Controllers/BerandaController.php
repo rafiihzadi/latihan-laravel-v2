@@ -13,7 +13,7 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        $nama = "Nahdi Saubari";
+        $nama = "Ravi hebat";
         return view('HalamanDepan.beranda');
     }
 

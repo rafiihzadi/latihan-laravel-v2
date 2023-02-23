@@ -7,4 +7,4 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}"">
+  <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">

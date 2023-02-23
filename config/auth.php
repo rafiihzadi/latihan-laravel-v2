@@ -40,6 +40,23 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'pengguna' => [
+            'driver' => 'session',
+            'provider' => 'penggunas'
+        ],
+
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        
     ],
 
     /*
@@ -65,10 +82,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'penggunas' => [
+            'driver' => 'database',
+            'model' => 'App\Pengguna::class',
+        ],
     ],
 
     /*
