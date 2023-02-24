@@ -16,6 +16,19 @@ class BerandaController extends Controller
         $nama = "Ravi hebat";
         return view('HalamanDepan.beranda');
     }
+    public function halamansatu()
+    {
+        return view('Halaman-satu');
+    }
+    public function halamandua()
+    {
+        return view('Halaman-dua');
+    }
+    public function halamantiga()
+    {
+        return view('Halaman-tiga');
+    }
+    
 
     /**
      * Show the form for creating a new resource.

@@ -26,10 +26,6 @@
         <a href="#"><b>Admin</b>LTE</a>
 </div>
 <!-- /.Login-Logo -->
-<div class="card card-outline card-primary">
-<div class="card-header text-center">
-<a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
-</div>
 <div class="card-body">
 <p class="login-box-msg">Sign in to start your session</p>
 
@@ -76,7 +72,7 @@ Remember Me
 <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
 </a>
 </div>
-
+<!-- /.social-outh-Links -->
 <p class="mb-1">
 <a href="forgot-password.html">I forgot my password</a>
 </p>
@@ -84,16 +80,16 @@ Remember Me
 <a href="register.html" class="text-center">Register a new membership</a>
 </p>
 </div>
-
+<!-- /.Login-card-body -->
 </div>
-
 </div>
+<!-- /.Login-box -->
 
-
+<!-- jQuery -->
 <script src="{{asset('AdminLTE/plugins/jquery/jquery.min.js')}}"></script>
-
+<!-- Bootstrap 4 -->
 <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+<!-- AdminLTE App -->
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>

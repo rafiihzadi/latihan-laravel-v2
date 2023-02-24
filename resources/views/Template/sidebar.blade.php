@@ -13,7 +13,11 @@
           <img src="{{asset('gambar/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          
+          @if (Str::length(Auth::guard('pengguna')->user ()) > 0)
+          <a href="#" class="d-block">{{ Auth::guard('pengguna')->user()->name }}</a>
+          @elseif (Str::length(Auth::guard('user')->user ()) > 0)
+          <a href="#" class="d-block">{{ Auth::guard('user')->user()->name }}</a>
+          @endif
         </div>
       </div>
 
@@ -31,22 +35,36 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              
-              <li class="nav-item">
-                <a href="" class="nav-link active">
+            @if (Str::length(Auth::guard('user')->user ()) > 0)
+            @if (Auth::guard('user')->user()->level = "admin")
+            <li class="nav-item">
+                <a href="{{ route('halaman-satu') }}" class="nav-link">
                     halaman satu
                 </a>
               </li>
-              
+              @endif
+              @endif
+
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('halaman-dua') }}" class="nav-link">
                     Halaman dua 
                 </a>
               </li>
+
+              @if (Str::length(Auth::guard('user')->user ()) > 0)
+            @if (Auth::guard('pengguna')->user()->level = "mhs")
+            <li class="nav-item">
+                <a href="{{ route('halaman-tiga') }}" class="nav-link">
+                    Halaman tiga 
+                </a>
+              </li>
+              @endif
+              @endif
+
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('logout')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Logout

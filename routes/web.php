@@ -21,8 +21,23 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('pengguna.login');
+})->name('login');
+
+Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+Route::get('logout','LoginController@lagout')->name('logout');
+
+Route::group(['middleware' => ['auth:user','ceklevel:admin']], function (){
+    route::get('/halaman-satu','BerandaController@halamansatu')->name('halaman-satu');
 });
 
-Route::get('/beranda', [BerandaController::class,'index']);
 
-Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+Route::group(['middleware' => ['auth:user,pengunna','ceklevel:admin,user,mhs']], function (){
+    route::get('/beranda', 'BerandaController@index');
+    route::get('/halaman-dua','BerandaController@halamandua')->name('halaman-dua');
+});
+
+Route::group(['middleware' => ['auth:pengguna','ceklevel:mhs']], function (){
+    route::get('/halaman-tiga','BerandaController@halamantiga')->name('halaman-tiga');
+
+    
+});
