@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BerandaController;
+use GuzzleHttp\Middleware;
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,21 +25,20 @@ Route::get('/login', function () {
     return view('pengguna.login');
 })->name('login');
 
-Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
-Route::get('logout','LoginController@lagout')->name('logout');
 
-Route::group(['middleware' => ['auth:user','ceklevel:admin']], function (){
-    route::get('/halaman-satu','BerandaController@halamansatu')->name('halaman-satu');
+
+Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
+
+    Route::get('/halaman-satu', [BerandaController::class,'halamansatu'])->name('halaman-satu');
+   
 });
 
+Route::group(['middleware' => ['auth', 'CekLevel:admin,user']], function () {
 
-Route::group(['middleware' => ['auth:user,pengunna','ceklevel:admin,user,mhs']], function (){
-    route::get('/beranda', 'BerandaController@index');
-    route::get('/halaman-dua','BerandaController@halamandua')->name('halaman-dua');
+    Route::get('/beranda', [BerandaController::class,'index']);
+    Route::get('/halaman-dua', [BerandaController::class,'halamandua'])->name('halaman-dua');
+    Route::get('/halaman-tiga', [BerandaController::class,'halamantiga'])->name('halaman-tiga');
 });
 
-Route::group(['middleware' => ['auth:pengguna','ceklevel:mhs']], function (){
-    route::get('/halaman-tiga','BerandaController@halamantiga')->name('halaman-tiga');
-
-    
-});
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

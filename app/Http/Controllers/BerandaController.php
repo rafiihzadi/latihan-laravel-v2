@@ -18,15 +18,15 @@ class BerandaController extends Controller
     }
     public function halamansatu()
     {
-        return view('Halaman-satu');
+        return view('Halaman.Halaman-satu');
     }
     public function halamandua()
     {
-        return view('Halaman-dua');
+        return view('Halaman.Halaman-dua');
     }
     public function halamantiga()
     {
-        return view('Halaman-tiga');
+        return view('Halaman.Halaman-tiga');
     }
     
 
