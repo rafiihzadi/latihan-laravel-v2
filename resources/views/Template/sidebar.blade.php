@@ -38,21 +38,21 @@
             @if(auth()->user()->level=="admin")
             <li class="nav-item">
                 <a href="{{route('halaman-satu')}}" class="nav-link">
-                    halaman 1
+                    halaman satu
                 </a>
               </li>
             @endif  
 
               <li class="nav-item">
                 <a href="{{route('halaman-dua')}}" class="nav-link">
-                    Halaman 2
+                    Halaman Dua
                 </a>
               </li>
 
               
             <li class="nav-item">
                 <a href="{{route('halaman-tiga')}}" class="nav-link">
-                    Halaman 3
+                    Halaman Tiga
                 </a>
               </li>
              

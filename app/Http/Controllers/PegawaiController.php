@@ -15,6 +15,7 @@ class pegawaiController extends Controller
     public function index()
     {
         $pegawai = Pegawai::all();
+        return view('Halaman.Halaman-dua',compact('pegawai'));
     }
     /**
      * Show the form for creating a new resource.
