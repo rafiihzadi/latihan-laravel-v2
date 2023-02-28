@@ -35,13 +35,13 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            @if(auth()->user()->level=="admin")
+            
             <li class="nav-item">
                 <a href="{{route('halaman-satu')}}" class="nav-link">
                     halaman satu
                 </a>
               </li>
-            @endif  
+            
 
               <li class="nav-item">
                 <a href="{{route('halaman-dua')}}" class="nav-link">

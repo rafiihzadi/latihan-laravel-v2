@@ -25,20 +25,17 @@ Route::get('/login', function () {
     return view('pengguna.login');
 })->name('login');
 
-
-
-Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
-
-    Route::get('/halaman-satu', [BerandaController::class,'halamansatu'])->name('halaman-satu');
-   
-});
-
-Route::group(['middleware' => ['auth', 'CekLevel:admin,user']], function () {
-
-    Route::get('/beranda', [BerandaController::class,'index']);
-    Route::get('/halaman-dua', [BerandaController::class,'halamandua'])->name('halaman-dua');
-    Route::get('/halaman-tiga', [BerandaController::class,'halamantiga'])->name('halaman-tiga');
-});
-
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
+  
+   
+// });
+
+Route::group(['middleware' => ['auth:user,pengguna', 'CekLevel:admin,user']], function () {
+
+    Route::get('/beranda', [BerandaController::class,'index']);
+    Route::get('/halaman-satu', [BerandaController::class,'halamansatu'])->name('halaman-satu');
+    Route::get('/halaman-dua', [BerandaController::class,'halamandua'])->name('halaman-dua');
+});
