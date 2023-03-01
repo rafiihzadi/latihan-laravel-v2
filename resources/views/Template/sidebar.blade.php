@@ -35,21 +35,20 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            @if(auth()->user()->level=="admin")
+            @if(Str::length(Auth::guard('user')->user()) > 0)
+            @if(Auth::guard('user')->level = "admin")
             <li class="nav-item">
                 <a href="{{route('halaman-satu')}}" class="nav-link">
                     halaman satu
                 </a>
               </li>
+            @endif
             @endif  
-
-              <li class="nav-item">
+            <li class="nav-item">
                 <a href="{{route('halaman-dua')}}" class="nav-link">
                     Halaman Dua
                 </a>
-              </li>
-
-              
+              </li>  
             <li class="nav-item">
                 <a href="{{route('halaman-tiga')}}" class="nav-link">
                     Halaman Tiga
