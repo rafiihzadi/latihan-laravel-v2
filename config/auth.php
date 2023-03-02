@@ -84,7 +84,7 @@ return [
 
         'penggunas' => [
             'driver' => 'database',
-            'model' => 'App\Pengguna::class',
+            'model' => App\Pengguna::class,
         ],
     ],
 
