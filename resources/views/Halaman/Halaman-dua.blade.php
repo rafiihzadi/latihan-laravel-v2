@@ -46,8 +46,6 @@
             <a href="{{ route('exportpegawai') }}" class="btn btn-success">Export</a></div>
             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Import</a>
         </div>
-
-
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
@@ -57,7 +55,7 @@
             <th>No. Telepon<th>
 
             </tr>
-            @foreach ($pegawi as $item)
+            @foreach ($pegawai as $item)
             <tr>
                 
                 <td>{{ $item->nama }}</td>
@@ -94,15 +92,14 @@
 
                 
             </div>
-            </form>
-            </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
-        <button type="sumbit" class="btn btn-primary">Import</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
+            <button type="sumbit" class="btn btn-primary">Import</button>
+        </div>
     </div>
+</form>
   </div>
-</div>
 </div>
 <!-- /.content -->
 </div>

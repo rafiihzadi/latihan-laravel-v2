@@ -41,12 +41,66 @@
 
 <!-- Main content -->
 <div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <h1>Halaman Tiga</h1>
+    <div class="card-info card-outline">
+        <div class="card-header">
+            <a href="{{ route('exportpegawai') }}" class="btn btn-success">Export</a></div>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Import</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+            <th>Nama<th>
+            <th>Alamat<th>
+            <th>Tanggal Lahir<th>
+            <th>No. Telepon<th>
+
+            </tr>
+            @foreach ($pegawai as $item)
+            <tr>
+                
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->alamat }}</td>
+                <td>{{ $item->tglhr }}</td>
+                <td>{{ $item->telp }}</td>
+            </tr>
+                @endforeach
+        </table>
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->
+    
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{ route('importPegawai') }}" method="post" enctype="multipart/form-data">
+
+      <div class="modal-body">
+          <div class="form-group">
+
+
+            {{ csrf_field() }}
+            <div class="form-group">
+                <input type="file" name="file" required="required">
+
+                
+            </div>
+            </form>
+            </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Selesai</button>
+        <button type="sumbit" class="btn btn-primary">Import</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <!-- /.content -->
 </div>
