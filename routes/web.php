@@ -29,17 +29,19 @@ Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogi
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth:user','cekLevel:admin']], function () {
-    Route::get('/halaman-satu', 'BerandaController@halamansatu')->name('halaman-satu');
+    Route::get('/halaman-satu', [BerandaController::class,'halamansatu'])->name('halaman-satu');
 });
 
     Route::group(['middleware' => ['auth:user,pengguna', 'cekLevel:admin,user,mhs']], function () {
-        route::get('/beranda', 'BerandaControllerindex');
-        route::get('/halaman-dua', 'BerandaController@index')->name('halaman-dua');
-        route::get('/exportpegawai', 'PegawaiController@pegawaiexport')->name('exportpegawai');
-        route::post('/importpegawai', 'PegawaiController@pegawaiimportexcel')->name('importpegawai');
+        Route::get('/beranda', [BerandaController::class,'index']);
+        Route::get('/halaman-satu', [BerandaController::class,'halamansatu'])->name('halaman-satu');
+        Route::get('/halaman-dua', [BerandaController::class,'halamandua'])->name('halaman-dua');
+        Route::get('/exportpegawai', [BerandaController::class,'halamandua'])->name('halaman-dua');
+        route::get('/exportpegawai', [PegawaiController::class,'pegawaiexportexcel'])->name('exportpegawai');
+        route::get('/exportpegawai', [PegawaiController::class,'pegawaiimportexcel'])->name('exportpegawai');
+    });
 
 
-});
     Route::group(['middleware' => ['auth:pengguna', 'cekLevel:mhs']], function () {
         Route::get('/halaman-tiga', 'BerandaController@halamantiga')->name('halaman-tiga');
     });

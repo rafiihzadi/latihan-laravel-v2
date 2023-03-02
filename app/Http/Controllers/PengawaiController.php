@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Pegawai;
+use App\Models\Pegawai;
 
 use App\Exports\PegawaiExport;
 use App\Imports\PegawaiImport;
