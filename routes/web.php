@@ -29,7 +29,7 @@ Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogi
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth:user','cekLevel:admin']], function () {
-    Route::get('/halaman-satu', [BerandaController::class,'halamansatu'])->name('halaman-satu');
+    Route::get('/halaman-satu', 'BerandaController@halamansatu')->name('halaman-satu');
 });
 
     Route::group(['middleware' => ['auth:user,pengguna', 'cekLevel:admin,user,mhs']], function () {
